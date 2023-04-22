@@ -4,7 +4,7 @@ let podname= process.env.HOSTNAME;
 let startTime;
 let host;
 
-let handleRequest = function(request, response) {
+var handleRequest = function(request, response) {
   response.setHeader('Content-Type', 'text/plain');
   response.writeHead(200);
   response.write("DevOps Coursework 2 Project! | Running on: ");
@@ -12,7 +12,7 @@ let handleRequest = function(request, response) {
   response.end(" | v=0\n");
   console.log("Running On:" ,host, "| Total Requests:", ++requests,"| App Uptime:", (new Date() - startTime)/1000 , "seconds", "| Log Time:",new Date());}
 
-let www = http.createServer(handleRequest);
+var www = http.createServer(handleRequest);
 www.listen(8080,function () {
     startTime = new Date();;
     host = process.env.HOSTNAME;
